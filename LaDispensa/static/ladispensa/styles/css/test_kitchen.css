@@ -1,0 +1,245 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(http://127.0.0.1:8000/static/ladispensa/styles/fonts/ticketdecaisse-regular.ttf) format("truetype");
+}
+.recipe-ticket__container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.recipe-ticket {
+  width: 260px;
+  padding: 10px;
+  background-color: #D9D9D9;
+}
+.recipe-ticket .ticket-date {
+  font-family: myFirstFont;
+  color: black;
+  line-height: 1em;
+}
+.recipe-ticket .ticket-ingredient__wrapper:last-child {
+  border-bottom: 1.2pt solid black;
+}
+.recipe-ticket .ticket-ingredient__wrapper {
+  border-top: 1.2pt solid black;
+}
+.recipe-ticket .ticket-ingredient__wrapper > span {
+  transform: translateY(2.5pt);
+}
+.recipe-ticket .ticket-instruction__container {
+  margin-top: 10px;
+}
+.recipe-ticket div {
+  font-family: myFirstFont;
+  color: black;
+}
+.recipe-ticket span {
+  display: inline-block;
+  line-height: 1.5em;
+  font-family: myFirstFont;
+  color: black;
+}
+
+.tag__container {
+  flex-grow: 1;
+  position: relative;
+  min-width: 65px;
+  transition: all 0.5s ease;
+  overflow-y: scroll;
+}
+.tag__container .closed {
+  width: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.tag__container .open {
+  width: 360px;
+}
+
+.tag-container.open {
+  min-width: 320px;
+  padding-left: 60px;
+}
+
+.slideout {
+  overflow: hidden;
+  overflow-y: scroll;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease;
+  width: 0px;
+}
+.slideout > div, .slideout > form {
+  padding: 20px;
+  padding-left: 80px;
+  background-color: #2D2A32;
+}
+
+.slideout__header {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#close-slideout {
+  cursor: pointer;
+}
+
+.notes__container {
+  display: flex;
+  width: 240px;
+}
+
+form.update-recipe {
+  width: 280px;
+  overflow: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+form.update-recipe > div {
+  display: flex;
+  margin-bottom: 7.5px;
+}
+form.update-recipe > div > .form__title {
+  width: 75%;
+  margin-right: 5px;
+}
+form.update-recipe > div > .form__time {
+  width: 25%;
+}
+
+.toggle-notes {
+  background-color: #3B74B8;
+  top: 10px;
+}
+
+.toggle-edit {
+  background-color: #F04E32;
+  top: 50px;
+}
+
+.toggle-feedback {
+  background-color: #FBAD18;
+  top: 90px;
+}
+
+.recipe-tag {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  padding: 4px 10px;
+  margin-bottom: 5px;
+  transition: all 0.5s ease;
+  max-width: fit-content;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  cursor: pointer;
+}
+
+.form-label {
+  font-size: 14pt;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.add-recipe-header {
+  display: flex;
+  flex-direction: row;
+}
+.add-recipe-header > img {
+  cursor: pointer;
+  transform: translateY(8px);
+}
+.add-recipe-header > div {
+  font-size: 80px;
+  font-weight: 400;
+  letter-spacing: 12px;
+  text-transform: uppercase;
+  margin-right: 20px;
+}
+
+input[type=submit] {
+  margin-bottom: 20px;
+  margin-top: 5px;
+  width: 50px;
+  color: #D9D9D9;
+  background-color: #2D2A32;
+  border: 2px solid #D9D9D9;
+  font-size: 14pt;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.recipe-history-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-ingredients {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-ingredients__wrapper {
+  display: flex;
+}
+.form-ingredients__wrapper > input {
+  flex-grow: 1;
+  width: 30%;
+  margin-right: 3px;
+}
+.form-ingredients__wrapper :first-child {
+  flex-grow: 3;
+  width: 60%;
+}
+.form-ingredients__wrapper > select {
+  flex-grow: 0.4;
+  width: 5%;
+}
+
+.form-instructions {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-instructions > div {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  margin-bottom: 5px;
+  font-size: 18pt;
+  font-weight: 600;
+  flex-grow: 1;
+}
+.form-instructions > div > input {
+  flex-grow: 1;
+  height: 100%;
+  margin-left: 10px;
+}
+
+.form__instructions {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+.add-form-container {
+  display: flex;
+  justify-content: end;
+}
+.add-form-container > img {
+  cursor: pointer;
+}
+.add-form-container :first-child {
+  margin-right: 5px;
+}
+
+.form__field {
+  color: #D9D9D9;
+  background-color: #2D2A32;
+  border: none;
+  border-bottom: 2px solid #D9D9D9;
+}
+
+/*# sourceMappingURL=test_kitchen.css.map */

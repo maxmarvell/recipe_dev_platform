@@ -1,0 +1,184 @@
+$pink: #FF91A4;
+$dark: #2D2A32;
+$white: #D9D9D9;
+
+// FORM - INGREDIENTS
+.form-ingredients {
+    display: flex;
+    flex-direction: column;
+}
+.form-ingredients__wrapper {
+
+    display: flex;
+
+    > input {
+        flex-grow: 1;
+        width: 30%;
+        margin-right: 3px;
+    }
+    :first-child {
+        flex-grow: 3;
+        width:60%;
+    }
+    > select {
+        flex-grow: .4;
+        width: 5%;
+    }
+}
+
+// FORM - INSTRUCTIONS
+.form-instructions {
+    display: flex;
+    flex-direction: column;
+}
+.form-instructions > div {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    margin-bottom: 5px;
+    font-size: 18pt;
+    font-weight: 600;
+    flex-grow: 1;
+    > input {
+        margin-left: 10px;
+    }
+}
+#form__instructions {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+// FORM - TOGGLE NUM FORM FIELDS
+.add-form-container {
+    display: flex;
+    justify-content: end;
+    > img {
+        cursor: pointer;
+    }
+    :first-child {
+        margin-right: 5px;
+    }
+}
+
+
+// FORM - FIELDS
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 50%;
+}
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid $white;
+    outline: 0;
+    font-size: 1.3rem;
+    color: $white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+        color: transparent;
+    }
+
+    &:placeholder-shown ~ .form__label {
+        font-size: 1.3rem;
+        cursor: text;
+        top: 20px;
+    }
+}
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $white;
+}
+.form__field:focus {
+    ~ .form__label {
+      position: absolute;
+      top: 0;
+      display: block;
+      transition: 0.2s;
+      font-size: 1rem;
+      color: $white;
+      font-weight:700;    
+    }
+    padding-bottom: 6px;  
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, $pink,$dark);
+    border-image-slice: 1;
+}
+  /* reset input */
+.form__field{
+    &:required,&:invalid { box-shadow:none; }
+}
+
+.add-recipe-body {
+    overflow: hidden;
+    overflow-y: scroll;
+    max-height: 0;
+    transition: all .5s ease;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $white;
+    border-bottom: 1px solid $white;
+    > div {
+        display: flex;  
+        margin-bottom: 7.5px;
+    }
+    > div > #form__title {
+        width: 75%;
+        margin-right: 5px;
+    }
+    > div > #form__time {
+        width: 25%;
+    }
+}
+.open {
+    max-height: 60vh;
+    margin-bottom: 10px;
+    padding: 0 20px;
+}
+#time-input__decorator {
+    vertical-align: text-bottom;
+}
+.form-label {
+    font-size: 14pt;
+    font-weight: bold;
+    margin-right: 5px;
+}
+#add-recipe-header {
+    display: flex;
+    flex-direction: row;
+    > img {
+        cursor: pointer;
+        transform: translateY(8px)
+    }
+    > div {
+        font-size: 80px;
+        font-weight: 400;
+        letter-spacing: 12px;
+        text-transform: uppercase;
+        margin-right: 20px;
+    }
+}
+
+input[type=submit] {
+    margin-bottom: 20px;
+    margin-top: 5px;
+    width: 50px;
+    color: $white;
+    background-color: $dark;
+    border: 2px solid $white;
+    font-size: 14pt;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}

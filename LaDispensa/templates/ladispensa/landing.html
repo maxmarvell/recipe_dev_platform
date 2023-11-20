@@ -1,0 +1,15 @@
+{% extends "ladispensa/layout.html" %}
+{% load static %}
+
+{% block body %}
+<img src="{% static 'ladispensa/imgs/background/VectorLanding.png' %}">
+<img src="{% static 'ladispensa/imgs/background/NoiseLanding.png' %}">
+<div id="landing__main">
+    <div id="landing__title">La Dispensa</div>
+    <div id="landing__subtitle">by Max Marvell</div>
+</div>
+{% endblock %}
+
+{% block stylesheet %}
+<link href="{% static 'ladispensa/styles/css/landing.css' %}" rel="stylesheet" height="656" width="742">
+{% endblock %}

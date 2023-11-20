@@ -1,0 +1,131 @@
+{% extends "ladispensa/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="form__container">
+    <div id="add-recipe-header">
+        <div id="add-recipe-title">
+            Upload Recipe
+        </div>
+        <img src="{% static 'ladispensa/imgs/index/arrow-down.svg' %}">
+        <img class="hidden" src="{% static 'ladispensa/imgs/index/arrow-up.svg' %}">
+    </div>
+    <form class="add-recipe-body" action="{% url 'submit-recipe' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <div class="form__group field" id="form__title">
+                {{ form.title }}
+                <label for="id_title" class="form__label">Title</label>
+            </div>
+            <div class="form__group field" id="form__time">
+                {{ form.time }}
+                <label for="id_time" class="form__label">Time</label>
+            </div>
+        </div>
+        <div class="form-ingredients">
+            {% for ingredient, quantity, unit in form.get_ingredient_fields %}
+            <div class="form-ingredients__wrapper">
+                {{ ingredient }}
+                {{ quantity }}
+                {{ unit }}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="add-form-container">
+            <img src="{% static 'ladispensa/imgs/index/add.svg' %}" id="add-ingredient">
+            <img src="{% static 'ladispensa/imgs/index/subtract.svg' %}" id="rmv-ingredient">
+        </div>
+        <div class="form-instructions">
+            {% for num, field in form.get_instruction_fields %}
+            <div>
+                <div>
+                    {{ num }}.
+                </div>
+                {% if num == 1 %}
+                <div class="form__group field" id="form__instructions">
+                    {{ field }}
+                    <label for="id_instruction_1" class="form__label">Instructions</label>
+                </div>
+                {% else %}
+                {{ field }}
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="add-form-container">
+            <img src="{% static 'ladispensa/imgs/index/add.svg' %}" id="add-instruction">
+            <img src="{% static 'ladispensa/imgs/index/subtract.svg' %}" id="rmv-instruction">
+        </div>
+        <p>
+            {{ form.image }}
+        </p>
+        <input type="submit" class="btn btn-primary" value="save">
+    </form>
+</div>
+
+
+
+<div class="grid__container">
+    <div class="form__group field">
+        <input autocomplete="off" type="input" class="form__field" placeholder="Search" name="search" id='search' required />
+        <label for="search" class="form__label">Search</label>
+    </div>
+    <div id="recipe-catalogue">
+        <div class="hidden recipe-element">
+            <img src="{% static 'ladispensa/imgs/index/tile.svg' %}">
+            <div class="recipe-element__title"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="recipe__container hidden">
+    <div class="recipe-header__wrapper"><h1></h1></div>
+    <div class="recipe-focus spaced">
+        <div class="recipe-image__wrapper"><img src=""></div>
+        <div class="recipe-information__container">
+            <div class="cook-time__wrapper">
+                Time to Cook: <span class="cook-time"></span> mins
+            </div>
+        </div>
+        <div class="recipe-actions__container">
+            <img id="recipe-icons__back" src="{% static 'ladispensa/imgs/recipe/back.svg' %}">
+            <img id="recipe-icons__cook" src="{% static 'ladispensa/imgs/recipe/cook.svg' %}">
+            <a href="{% url 'test-kitchen' 0 %}" id="recipe-icons__edit">
+                <img src="{% static 'ladispensa/imgs/recipe/edit.svg' %}">
+            </a>
+            <img id="recipe-icons__del" src="{% static 'ladispensa/imgs/recipe/delete.svg' %}">
+        </div>
+    </div>
+    <div class="recipe-body">
+        <div class="recipe-ingredient__container">
+            <h2>Ingredients</h2>
+            <div class="recipe-ingredient__wrapper hidden">
+                <hr>
+                <span class="recipe-quantity"></span>
+                <span class="recipe-unit"></span>
+                <span class="recipe-ingredient"></span>
+            </div>
+        </div>
+        <div class="recipe-instruction__container">
+            <h2>Method</h2>
+            <div class="recipe-instruction__wrapper spaced hidden">
+                STEP <span class="recipe-instruction-count"></span><br>
+                <span class="recipe-instruction-text"></span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block stylesheet %}
+<link href="{% static 'ladispensa/styles/css/index.css' %}" rel="stylesheet">
+<link href="{% static 'ladispensa/styles/css/recipe.css' %}" rel="stylesheet">
+<link href="{% static 'ladispensa/styles/css/forms.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'ladispensa/javascript/index.js' %}"></script>
+<script src="{% static 'ladispensa/javascript/recipe.js' %}"></script>
+{% endblock %}

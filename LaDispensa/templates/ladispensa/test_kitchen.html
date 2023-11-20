@@ -1,0 +1,107 @@
+{% extends "ladispensa/layout.html" %}
+{% load static %}
+
+{% block body %}
+<h1>Test Kitchen</h1>
+<select type="input" class="form__field" placeholder="Search" name="search" id='search' required></select>
+{% if recipe %}
+<div class="test-kitchen__container">
+    <hr>
+    <h1 id="{{ recipe.id }}" class="recipe-title"></h1>
+    <div>
+        <h1>original</h1>
+        <div class="recipe-ticket__container">
+            <div class="recipe-ticket staged-iteration">
+                <div class="ticket-date">
+                    Dated: 
+                </div>
+                <div class="ticket-ingredient__container">
+                    <div class="ticket-ingredient__wrapper">
+                        <span class="recipe-quantity"></span>
+                        <span class="recipe-unit"></span>
+                        <span class="recipe-ingredient"></span>
+                    </div>
+                </div>
+                <div class="ticket-instruction__container">
+                    <div class="ticket-instruction__wrapper">
+                        STEP <span class="recipe-instruction-count"></span><br>
+                        <span class="recipe-instruction-text"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tag__container">
+                <div class="slideouts__container">
+                    <div class="slideout">
+                        <div class="notes__container">
+                            <div class="slideout__header">
+                                Notes.
+                                <img id="close-slideout" src="{% static 'ladispensa/imgs/edit--recipe/cross.svg' %}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slideout">
+                        <form class="update-recipe" action="{% url 'submit-recipe' %}" method="put">
+                            {% csrf_token %}
+                            <div class="slideout__header">
+                                Edit.
+                                <img id="close-slideout" src="{% static 'ladispensa/imgs/edit--recipe/cross.svg' %}">
+                            </div>
+                            <div class="form-ingredients">
+                                {% for ingredient, quantity, unit in form.get_ingredient_fields %}
+                                <div class="form-ingredients__wrapper">
+                                    {{ ingredient }}
+                                    {{ quantity }}
+                                    {{ unit }}
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="add-form-container">
+                                <img src="{% static 'ladispensa/imgs/index/add.svg' %}"
+                                width="15" height="15" id="add-ingredient">
+                                <img src="{% static 'ladispensa/imgs/index/subtract.svg' %}"
+                                width="15" height="15" id="rmv-ingredient">
+                            </div>
+                            <div class="form-instructions">
+                                {% for num, field in form.get_instruction_fields %}
+                                <div class="form-instructions__wrapper">
+                                    <div>
+                                        {{ num }}.
+                                    </div>
+                                    {{ field }}
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="add-form-container">
+                                <img src="{% static 'ladispensa/imgs/index/add.svg' %}"
+                                width="15" height="15" id="add-instruction">
+                                <img src="{% static 'ladispensa/imgs/index/subtract.svg' %}"
+                                width="15" height="15" id="rmv-instruction">
+                            </div>
+                            <input type="submit" class="submit-iteration" value="send">
+                        </form>
+                    </div>
+                </div>
+                <div class="recipe-tag toggle-notes">
+                    Notes
+                </div>
+                <div class="recipe-tag toggle-edit">
+                    Edit
+                </div>
+                <div class="recipe-tag toggle-feedback">
+                    Feedback
+                </div>
+            </div>
+        </div>
+    </div>
+<h1>history</h1>
+<div class="recipe-history-container"></div>
+{% endif %}
+{% endblock %}
+
+{% block stylesheet %}
+<link href="{% static 'ladispensa/styles/css/test_kitchen.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'ladispensa/javascript/test_kitchen.js' %}"></script>
+{% endblock %}

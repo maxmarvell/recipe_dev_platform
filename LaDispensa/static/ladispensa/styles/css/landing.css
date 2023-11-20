@@ -1,0 +1,43 @@
+.body > img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 100;
+}
+
+div#landing__main {
+  z-index: 900;
+  display: flex;
+  position: absolute;
+  top: 330px;
+  width: 418.355px;
+  height: 166.899px;
+  transform: rotate(-7.5deg);
+}
+div#landing__main > div#landing__title {
+  position: absolute;
+  font-size: 80px;
+  font-weight: 400;
+  letter-spacing: 20.8px;
+  line-height: normal;
+  width: 411.945px;
+  text-transform: uppercase;
+  height: 100%;
+  bottom: 0;
+}
+div#landing__main > div#landing__subtitle {
+  display: flex;
+  align-items: end;
+  position: absolute;
+  line-height: 1.8;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  width: 79.005px;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+}
+
+/*# sourceMappingURL=landing.css.map */

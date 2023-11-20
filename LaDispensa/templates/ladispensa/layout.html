@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}La Dispensa{% endblock %}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Tulpen+One&display=swap" rel="stylesheet">
+        {% block stylesheet %}
+        {% endblock %}
+        <link href="{% static 'ladispensa/styles/css/layout.css' %}" rel="stylesheet">
+        <script src="{% static 'ladispensa/javascript/layout.js' %}"></script>
+        {% block script %}
+        {% endblock %}
+    </head>
+    <body>
+        <div id="menu-select">
+            <div id="menu-select__closed">
+                <img src="{% static 'ladispensa/imgs/menu/Polygon 1menu__closed.svg' %}">
+                <img id="menu-select__decorator" src="{% static 'ladispensa/imgs/menu/Unionmenu__closed.svg' %}">
+            </div>
+            <div id="menu-select__open">
+                <img src="{% static 'ladispensa/imgs/menu/menu-open.svg' %}">
+                <div>
+                    <img id="menu-select__decorator" src="{% static 'ladispensa/imgs/menu/back-arrow.svg' %}">
+                    <a href="{% url 'index' %}">Recipes</a>
+                    <a>Test Kitchen</a>
+                    <a>Pantry</a>
+                    <a>Login</a>
+                    <a href="{% url 'landing' %}">Home</a>
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

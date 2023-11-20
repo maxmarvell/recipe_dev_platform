@@ -1,0 +1,30 @@
+#recipe-catalogue {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 10px;
+}
+#recipe-catalogue > .hidden {
+  display: none;
+}
+
+.recipe-element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.recipe-element > .recipe-element__title {
+  cursor: pointer;
+  margin-left: 10px;
+  position: absolute;
+  font-weight: 700;
+  font-size: 14pt;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+.recipe-element > img {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=index.css.map */
